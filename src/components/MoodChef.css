@@ -1,0 +1,442 @@
+/* =====================
+   PAGE LAYOUT
+   ===================== */
+
+.moodchef-page {
+  display: flex;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #fff8f4;
+}
+
+/* =====================
+   LEFT PANEL
+   ===================== */
+
+.moodchef-left {
+  width: 340px;
+  min-width: 280px;
+  background: linear-gradient(160deg, #ff6b35, #ff4d4d, #c0392b);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 60px 40px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+
+.left-badge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.25);
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 20px;
+  margin-bottom: 24px;
+  width: fit-content;
+}
+
+.left-title {
+  font-size: 56px;
+  font-weight: 900;
+  line-height: 1.1;
+  margin: 0 0 20px;
+  letter-spacing: -1px;
+}
+
+.left-desc {
+  font-size: 15px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0 0 40px;
+}
+
+.left-icon {
+  font-size: 64px;
+  opacity: 0.3;
+}
+
+/* =====================
+   RIGHT PANEL
+   ===================== */
+
+.moodchef-right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 30px;
+  overflow-y: auto;
+}
+
+.moodchef-card {
+  background: white;
+  border-radius: 24px;
+  padding: 40px 36px;
+  width: 100%;
+  max-width: 520px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.08);
+}
+
+/* =====================
+   CARD HEADER
+   ===================== */
+
+.card-title {
+  font-size: 24px;
+  font-weight: 800;
+  color: #1a1a1a;
+  margin: 0 0 6px;
+}
+
+.card-sub {
+  font-size: 14px;
+  color: #888;
+  margin: 0 0 24px;
+}
+
+/* =====================
+   MOOD GRID
+   ===================== */
+
+.mood-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.mood-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 6px;
+  border-radius: 14px;
+  border: 2px solid #eee;
+  background: #fafafa;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.mood-btn:hover {
+  border-color: #ffb347;
+  background: #fff5ee;
+  transform: translateY(-2px);
+}
+
+.mood-btn-active {
+  color: white;
+  border-color: transparent;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+}
+
+.mood-emoji {
+  font-size: 22px;
+  line-height: 1;
+}
+
+.mood-label {
+  font-size: 10px;
+  font-weight: 700;
+  color: #444;
+  text-align: center;
+}
+
+.mood-btn-active .mood-label {
+  color: #1a1a1a;
+}
+
+/* =====================
+   CRAVING INPUT
+   ===================== */
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  margin-bottom: 8px;
+}
+
+.craving-input {
+  width: 100%;
+  padding: 13px 16px;
+  border-radius: 12px;
+  border: 1.5px solid #eee;
+  font-size: 14px;
+  color: #333;
+  font-family: inherit;
+  outline: none;
+  transition: border 0.2s;
+  box-sizing: border-box;
+  background: #fafafa;
+}
+
+.craving-input:focus {
+  border-color: #ff6b35;
+  background: white;
+}
+
+/* =====================
+   ASK BUTTON
+   ===================== */
+
+.ask-btn {
+  width: 100%;
+  padding: 15px;
+  background: linear-gradient(135deg, #ff6b35, #ff4d4d);
+  color: white;
+  border: none;
+  border-radius: 14px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+  transition: transform 0.2s, opacity 0.2s;
+  letter-spacing: 0.3px;
+}
+
+.ask-btn:hover:not(.ask-btn-disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 77, 77, 0.35);
+}
+
+.ask-btn-disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.loading-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.error-msg {
+  color: #e74c3c;
+  font-size: 13px;
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+/* =====================
+   RESULT SECTION
+   ===================== */
+
+.result-section {
+  animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.mood-badge {
+  display: inline-block;
+  background: #fff0f7;
+  color: #c0392b;
+  font-weight: 700;
+  font-size: 13px;
+  padding: 6px 16px;
+  border-radius: 20px;
+  margin-bottom: 14px;
+}
+
+.result-tagline {
+  font-size: 18px;
+  font-style: italic;
+  color: #444;
+  text-align: center;
+  margin-bottom: 22px;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+/* =====================
+   DISH CARDS
+   ===================== */
+
+.dish-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.dish-card {
+  background: #fffaf5;
+  border: 1.5px solid #ffe5cc;
+  border-radius: 14px;
+  padding: 16px 18px;
+}
+
+.dish-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.dish-name {
+  font-weight: 700;
+  font-size: 15px;
+  color: #1a1a1a;
+}
+
+.dish-price {
+  font-weight: 800;
+  font-size: 15px;
+  color: #ff6b35;
+}
+
+.dish-reason {
+  font-size: 13px;
+  color: #666;
+  margin: 0;
+  line-height: 1.55;
+}
+
+/* =====================
+   FLAVOR BOX
+   ===================== */
+
+.flavor-box {
+  background: linear-gradient(135deg, #fff5f0, #fff0f7);
+  border-radius: 14px;
+  padding: 16px 18px;
+  margin-bottom: 22px;
+}
+
+.flavor-title {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #ff6b35;
+  margin-bottom: 8px;
+}
+
+.flavor-text {
+  font-size: 13px;
+  color: #555;
+  margin: 0;
+  line-height: 1.65;
+}
+
+/* =====================
+   RESET BUTTON
+   ===================== */
+
+.reset-btn {
+  width: 100%;
+  background: none;
+  border: 1.5px solid #eee;
+  border-radius: 12px;
+  padding: 12px 20px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #666;
+  font-family: inherit;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.reset-btn:hover {
+  background: #f5f5f5;
+  border-color: #ddd;
+}
+
+/* =====================
+   RESPONSIVE
+   ===================== */
+
+@media (max-width: 700px) {
+  .moodchef-page {
+    flex-direction: column;
+  }
+
+  .moodchef-left {
+    width: 100%;
+    height: auto;
+    position: static;
+    padding: 36px 24px;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .left-title {
+    font-size: 36px;
+    margin-bottom: 0;
+  }
+
+  .left-icon {
+    display: none;
+  }
+
+  .left-desc {
+    display: none;
+  }
+
+  .moodchef-right {
+    padding: 24px 16px;
+  }
+
+  .moodchef-card {
+    padding: 28px 20px;
+  }
+
+  .mood-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+  }
+}
+/* CLOSE BUTTON */
+.close-top-btn {
+  position: fixed;
+  top: 15px;
+  right: 20px;
+  background: #ff4d4d;
+  color: white;
+  border: none;
+  font-size: 18px;
+  padding: 8px 12px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.close-top-btn:hover {
+  background: #e60023;
+}

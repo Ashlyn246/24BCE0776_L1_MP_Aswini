@@ -1,0 +1,14 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  background: linear-gradient(to right, orange, red);
+  padding: 15px;
+  color: white;
+}
+
+.navbar a {
+  margin: 10px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
