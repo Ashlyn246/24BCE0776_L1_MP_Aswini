@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 
 import Navbar_24BCE0776_Aswini from "./components/Navbar";
 import Home_24BCE0776_Aswini from "./components/Home";
